@@ -11,7 +11,9 @@ export class ParentComponent implements OnInit, AfterViewInit {
     'Parent Component to be passed to child component using @Input';
 
   @ViewChild(ChildComponent) child: any;
-  childMessage: string = '';
+  childMessage: string | undefined;
+  bool = true;
+  nameData: string = '';
 
   constructor() {
     console.log('ParentComponent constructor');
@@ -23,5 +25,8 @@ export class ParentComponent implements OnInit, AfterViewInit {
     this.childMessage = this.child.childData;
   }
 
+  onSubmit(): void {
+    this.bool = !this.bool;
+  }
   ngOnInit(): void {}
 }
